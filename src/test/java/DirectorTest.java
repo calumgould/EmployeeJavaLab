@@ -20,6 +20,18 @@ public class DirectorTest {
     }
 
     @Test
+    public void canSetName(){
+        director.setName("Clive Calum Seal-Paivansalo");
+        assertEquals("Clive Calum Seal-Paivansalo", director.getName());
+    }
+
+    @Test
+    public void cannotSetNameIfNull(){
+        director.setName(null);
+        assertEquals("Dreamteam", director.getName());
+    }
+
+    @Test
     public void canGetNINumber(){
         assertEquals("DR23272T", director.getNINumber());
     }
@@ -41,8 +53,14 @@ public class DirectorTest {
     }
 
     @Test
+    public void cannotRaiseSalaryIfAmountIsNegative(){
+        director.raiseSalary(-20000);
+        assertEquals(95000, director.getSalary(), 0.01);
+    }
+
+    @Test
     public void canCalculatePayBonus(){
-        assertEquals(950, director.calculatePayBonus(), 0.01);
+        assertEquals(1900, director.calculatePayBonus(), 0.01);
     }
 
     @Test

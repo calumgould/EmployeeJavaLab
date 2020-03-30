@@ -20,6 +20,18 @@ public class ManagerTest {
     }
 
     @Test
+    public void canSetName(){
+        manager.setName("Calllllum");
+        assertEquals("Calllllum", manager.getName());
+    }
+
+    @Test
+    public void cannotSetNameIfNull(){
+        manager.setName(null);
+        assertEquals("Calum", manager.getName());
+    }
+
+    @Test
     public void canGetNINumber(){
         assertEquals("CA2402G", manager.getNINumber());
     }
@@ -38,6 +50,12 @@ public class ManagerTest {
     public void canRaiseSalary(){
         manager.raiseSalary(5000);
         assertEquals(55000, manager.getSalary(), 0.01);
+    }
+
+    @Test
+    public void cannotRaiseSalaryIfAmountIsNegative(){
+        manager.raiseSalary(-8000);
+        assertEquals(50000, manager.getSalary(), 0.01);
     }
 
     @Test
